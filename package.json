@@ -8,7 +8,7 @@
     "start": "node server.js",
     "start:dev": "concurrently --kill-others \"nodemon --ignore 'bizcard/*'\" \"npm run bizcard\"",
     "client": "cd bizcard && ng serve -o",
-    "heroku-postbuild": "cd bizcard && npm i"
+    "heroku-postbuild": "cd bizcard && npm i && ng build --prod"
   },
   "keywords": [],
   "author": "",
