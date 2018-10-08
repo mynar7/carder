@@ -12,8 +12,9 @@ app.get('/', function(req, res) {
 })
 
 app.get('/card', function(req, res) {
-    res.type('vcf')
-    res.send(vCard);
+    res.set('Content-Type', 'text/vcard; name="enesser.vcf"');
+    res.set('Content-Disposition', 'inline; filename="enesser.vcf"');
+    res.send(vCard.getFormattedString());
 });
 
 var vCard = require('vcards-js');
