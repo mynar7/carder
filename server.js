@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 app.use(express.static('bizcard/dist/bizcard'));
 
 app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, 'bizcard/dist/bizcard/index.html'));
+    res.sendFile(path.join(__dirname, './bizcard/dist/bizcard/index.html'));
 })
 
 app.get('/card', function(req, res) {
