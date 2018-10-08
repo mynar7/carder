@@ -26,22 +26,22 @@ const vcardContent = vcard.generate({
       prefix: 'Dr.',
       suffix: 'Jr.',
     },
-    formattedNames: [{
-      text: 'Mr. Johny',
-    }],
-    nicknames: [{
-      text: 'Phil',
-    }],
-    extraName: {
-      maidenName: 'MaidenName',
-      phoneticFirstName: 'PhoneticFirstName',
-      phoneticMiddleName: 'PhoneticMiddleName',
-      phoneticLastName: 'PhoneticLastName',
+    // formattedNames: [{
+    //   text: 'Mr. Johny',
+    // }],
+    // nicknames: [{
+    //   text: 'Phil',
+    // }],
+    // extraName: {
+    //   maidenName: 'MaidenName',
+    //   phoneticFirstName: 'PhoneticFirstName',
+    //   phoneticMiddleName: 'PhoneticMiddleName',
+    //   phoneticLastName: 'PhoneticLastName',
 
-      pronunciationFirstName: 'PronunciationFirstName',
-      pronunciationMiddleName: 'PronunciationMiddleName',
-      pronunciationLastName: 'PronunciationLastName',
-    },
+    //   pronunciationFirstName: 'PronunciationFirstName',
+    //   pronunciationMiddleName: 'PronunciationMiddleName',
+    //   pronunciationLastName: 'PronunciationLastName',
+    // },
 
     works: [{
       organization: 'My Company, Inc.',
@@ -78,13 +78,13 @@ const vcardContent = vcard.generate({
       code: '23456',
       country: 'USA',
     }],
-    socialProfiles: [{
-      type: 'facebook',
-      uri: 'http://www.facebook.com/johndoe',
-    }, {
-      type: 'twitter',
-      user: 'johnie',
-    }],
+    // socialProfiles: [{
+    //   type: 'facebook',
+    //   uri: 'http://www.facebook.com/johndoe',
+    // }, {
+    //   type: 'twitter',
+    //   user: 'johnie',
+    // }],
     urls: [{
       type: 'internet',
       uri: 'http://www.mycompany.com',
@@ -106,14 +106,14 @@ const vcardContent = vcard.generate({
       month: 1,
       day: 31,
     },
-    gender: {
-      sex: 'male',
-    },
-    notes: [{
-      text: 'John Doe has a long and varied history, being documented on more police files that anyone else.\nReports of his death are alas numerous.',
-    }, {
-      text: 'Another note.',
-    }],
+    // gender: {
+    //   sex: 'male',
+    // },
+    // notes: [{
+    //   text: 'John Doe has a long and varied history, being documented on more police files that anyone else.\nReports of his death are alas numerous.',
+    // }, {
+    //   text: 'Another note.',
+    // }],
   });
 
   app.listen(PORT, function() {
