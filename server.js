@@ -6,7 +6,7 @@ const app = express();
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, 'bizcard/dist/bizcard')));
+app.use(express.static('bizcard/dist/bizcard'));
 
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, '/index.html'));
