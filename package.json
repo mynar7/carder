@@ -6,9 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "start:dev": "concurrently --kill-others \"nodemon --ignore 'bizcard/*'\" \"npm run bizcard\"",
+    "start:dev": "concurrently --kill-others \"nodemon --ignore 'bizcard/*'\" \"npm run client\"",
     "client": "cd bizcard && ng serve -o",
-    "heroku-postbuild": "cd bizcard && npm i && ng build --prod"
+    "install": "cd bizcard && npm i",
+    "heroku-postbuild": "ng build --prod"
   },
   "keywords": [],
   "author": "",
