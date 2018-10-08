@@ -9,7 +9,8 @@
     "start:dev": "concurrently --kill-others \"nodemon --ignore 'bizcard/*'\" \"npm run client\"",
     "client": "cd bizcard && ng serve -o",
     "install": "cd bizcard && npm i",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "build": "cd bizcard && npm run build"
   },
   "keywords": [],
   "author": "",
