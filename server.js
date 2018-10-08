@@ -1,7 +1,5 @@
-const vcard = require('vcard-generator');
 const express = require('express');
 const path = require('path');
-const fs = require('fs');
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -15,107 +13,26 @@ app.get('/', function(req, res) {
 
 app.get('/card', function(req, res) {
     res.type('vcf')
-    res.send(vcardContent);
+    res.send(vCard);
 });
 
-const vcardContent = vcard.generate({
-    name: {
-      familyName: 'Doe',
-      givenName: 'John',
-      middleName: 'Philip',
-      prefix: 'Dr.',
-      suffix: 'Jr.',
-    },
-    // formattedNames: [{
-    //   text: 'Mr. Johny',
-    // }],
-    // nicknames: [{
-    //   text: 'Phil',
-    // }],
-    // extraName: {
-    //   maidenName: 'MaidenName',
-    //   phoneticFirstName: 'PhoneticFirstName',
-    //   phoneticMiddleName: 'PhoneticMiddleName',
-    //   phoneticLastName: 'PhoneticLastName',
+var vCard = require('vcards-js');
 
-    //   pronunciationFirstName: 'PronunciationFirstName',
-    //   pronunciationMiddleName: 'PronunciationMiddleName',
-    //   pronunciationLastName: 'PronunciationLastName',
-    // },
+//create a new vCard
+vCard = vCard();
 
-    works: [{
-      organization: 'My Company, Inc.',
-      title: 'CEO',
-      role: 'Executive',
-    }],
-    emails: [{
-      type: 'work',
-      text: 'john@mycompany.com',
-    }, {
-      type: 'home',
-      text: 'johndoe@example.com',
-    }],
-    phones: [{
-      type: 'work',
-      text: '1 (234) 567-8901',
-    }, {
-      text: '(123) 123-1234',
-    }, {
-      uri: 'tel:1234567890',
-    }],
-    addresses: [{
-      type: 'work',
-      street: '123 Forbes Ave, Apt 1',
-      locality: 'San Francisco',
-      region: 'CA',
-      code: '12345',
-      country: 'USA',
-    }, {
-      type: 'home',
-      street: '456 Home St',
-      locality: 'Homeland',
-      region: 'CA',
-      code: '23456',
-      country: 'USA',
-    }],
-    // socialProfiles: [{
-    //   type: 'facebook',
-    //   uri: 'http://www.facebook.com/johndoe',
-    // }, {
-    //   type: 'twitter',
-    //   user: 'johnie',
-    // }],
-    urls: [{
-      type: 'internet',
-      uri: 'http://www.mycompany.com',
-    }, {
-      type: 'personal',
-      uri: 'http://www.johndoe.com',
-    }],
+//set properties
+vCard.firstName = 'Eric';
+vCard.middleName = 'J';
+vCard.lastName = 'Nesser';
+vCard.organization = 'ACME Corporation';
+vCard.photo.attachFromUrl('https://avatars2.githubusercontent.com/u/5659221?v=3&s=460', 'JPEG');
+vCard.workPhone = '312-555-1212';
+vCard.birthday = new Date('01-01-1985');
+vCard.title = 'Software Developer';
+vCard.url = 'https://github.com/enesser';
+vCard.note = 'Notes on Eric';
 
-    photos: [{
-      type: 'work',
-      uri: 'https://upload.wikimedia.org/wikipedia/en/8/80/Wikipedia-logo-v2.svg',
-    }, {
-      type: 'home',
-      dataUri: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAABlBMVEUAAAD///+l2Z/dAAAAM0lEQVR4nGP4/5/h/1+G/58ZDrAz3D/McH8yw83NDDeNGe4Ug9C9zwz3gVLMDA/A6P9/AFGGFyjOXZtQAAAAAElFTkSuQmCC',
-    }],
-
-    birthday: {
-      year: 2000,
-      month: 1,
-      day: 31,
-    },
-    // gender: {
-    //   sex: 'male',
-    // },
-    // notes: [{
-    //   text: 'John Doe has a long and varied history, being documented on more police files that anyone else.\nReports of his death are alas numerous.',
-    // }, {
-    //   text: 'Another note.',
-    // }],
-  });
-
-  app.listen(PORT, function() {
-      console.log('app listening on PORT http://localhost:' + PORT);
-  })
+app.listen(PORT, function() {
+    console.log('app listening on PORT http://localhost:' + PORT);
+})
