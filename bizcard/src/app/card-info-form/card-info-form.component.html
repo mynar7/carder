@@ -1,0 +1,23 @@
+<form class="container" [formGroup]="cardInfo">
+    <mat-form-field>
+        <input matInput placeholder="Full Name" formControlName="name" required>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Email" type="email" formControlName="email" required>
+        <mat-error>Please Enter a Valid Email</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <span matPrefix>+1</span>
+        <mat-label>Phone Number</mat-label>
+        <input matInput placeholder="5551234567" formControlName="phoneNumber" pattern="^\d{10}$" required>
+        <mat-error>10-Digit Phone Number Required</mat-error>
+        <mat-error>Digits: {{cardInfo.value.phoneNumber.length}}/10</mat-error>
+    </mat-form-field>
+
+    <p>
+        Name: {{cardInfo.value.name}}<br>
+        Email: {{cardInfo.value.email}}<br>
+        Phone Number: {{cardInfo.value.phoneNumber}}<br>
+        Status: {{cardInfo.status}}
+    </p>
+</form>
