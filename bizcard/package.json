@@ -7,7 +7,8 @@
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "http": "node_modules/http-server/bin/http-server -p 8080 -c-1 dist/bizcard"
   },
   "private": true,
   "dependencies": {
@@ -46,5 +47,8 @@
     "tslint": "~5.9.1",
     "typescript": "~2.7.2",
     "zone.js": "~0.8.26"
+  },
+  "devDependencies": {
+    "http-server": "^0.11.1"
   }
 }
